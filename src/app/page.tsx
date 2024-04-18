@@ -1,6 +1,6 @@
 'use client';
 
-import { useReducer, useState } from 'react';
+import { useReducer } from 'react';
 import { TaskStatusType, SortType, ActionType } from '../../types';
 import Task from './components/task';
 import reducer from './components/task-reducer';
@@ -10,8 +10,10 @@ import TaskFilter from './components/task-filter';
 import { initialTasks } from './components/tasks-initial-value';
 
 export default function Home() {
-  const [state, dispatch] = useReducer(reducer, { tasks: initialTasks });
-  const [filterType, setFilterType] = useState<SortType>(SortType.ALL);
+  const [state, dispatch] = useReducer(reducer, {
+    tasks: initialTasks,
+    sort: SortType.ALL,
+  });
 
   return (
     <>
@@ -28,7 +30,7 @@ export default function Home() {
         <ul className="flex-grow sm:p-4 lg:w-3/4 gap-4 flex flex-col overflow-auto w-full">
           {state.tasks
             .filter((item) => {
-              switch (filterType) {
+              switch (state.sort) {
                 case SortType.ALL:
                   return true;
                 case SortType.ACTIVE:
@@ -73,7 +75,14 @@ export default function Home() {
       <footer className="bg-lime-700 w-full">
         <div className="container m-auto text-white flex gap-4 md:gap-8 justify-center items-center p-4 flex-col md:flex-row">
           <Summary value={state.tasks.length} />
-          <TaskFilter setFilterType={setFilterType} filterType={filterType} />
+          <TaskFilter
+            onSumbit={(sort) => {
+              dispatch({
+                type: ActionType.CHANGE_SORT,
+                payload: { sort },
+              });
+            }}
+          />
 
           <form className="flex gap-2 justify-evenly w-full md:flex-col md:w-1/5 items-start">
             <button

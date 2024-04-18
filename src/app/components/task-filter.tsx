@@ -1,13 +1,13 @@
-import { Dispatch, SetStateAction } from 'react';
+import { useState } from 'react';
 import { SortType } from '../../../types';
 
 export default function TaskFilter({
-  setFilterType,
-  filterType,
+  onSumbit,
 }: {
-  setFilterType: Dispatch<SetStateAction<SortType>>;
-  filterType: string;
+  onSumbit: (sort: SortType) => void;
 }) {
+  const [filterType, setFilterType] = useState<SortType>(SortType.ALL);
+
   return (
     <form className="flex gap-4 justify-evenly w-full md:w-3/6">
       <input
@@ -18,6 +18,7 @@ export default function TaskFilter({
         className="hidden peer/all"
         onChange={(e) => {
           setFilterType(SortType.ALL);
+          onSumbit(SortType.ALL);
         }}
       />
       <label
@@ -35,6 +36,7 @@ export default function TaskFilter({
         checked={filterType === SortType.COMPLETED}
         onChange={(e) => {
           setFilterType(SortType.COMPLETED);
+          onSumbit(SortType.COMPLETED);
         }}
       />
       <label
@@ -52,6 +54,7 @@ export default function TaskFilter({
         checked={filterType === SortType.ACTIVE}
         onChange={(e) => {
           setFilterType(SortType.ACTIVE);
+          onSumbit(SortType.ACTIVE);
         }}
       />
 

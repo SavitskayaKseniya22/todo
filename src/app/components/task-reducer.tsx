@@ -2,6 +2,7 @@ import {
   ActionType,
   ReducerActionType,
   ReducerStateType,
+  TaskListType,
   TaskStatusType,
 } from '../../../types';
 import makeid from '../../../utils';
@@ -11,6 +12,12 @@ export default function reducer(
   action: ReducerActionType
 ) {
   switch (action.type) {
+    case ActionType.CHANGE_SORT:
+      return {
+        ...state,
+        sort: action.payload.sort,
+      };
+
     case ActionType.REMOVE_TASK:
       return {
         ...state,
@@ -36,9 +43,7 @@ export default function reducer(
       };
 
     case ActionType.CLEAR_ALL:
-      return {
-        tasks: [],
-      };
+      return { ...state, tasks: [] };
     case ActionType.CLEAR_COMPLETED:
       return {
         ...state,

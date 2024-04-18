@@ -34,9 +34,13 @@ export type ReducerActionType =
   | {
       type: ActionType.ADD_TASK;
       payload: { content: string };
+    }
+  | {
+      type: ActionType.CHANGE_SORT;
+      payload: { sort: SortType };
     };
 
-export type ReducerStateType = { tasks: TaskListType };
+export type ReducerStateType = { tasks: TaskListType; sort: SortType };
 
 export enum ActionType {
   'COMPLETE_ALL' = 'complete-all',
@@ -46,4 +50,5 @@ export enum ActionType {
   'REMOVE_TASK' = 'remove-task',
   'UNCOMPLETE_TASK' = 'uncomplete-task',
   'ADD_TASK' = 'add-task',
+  'CHANGE_SORT' = 'change-sort',
 }
