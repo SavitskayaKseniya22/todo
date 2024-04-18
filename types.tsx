@@ -16,3 +16,34 @@ export enum SortType {
   'COMPLETED' = 'completed',
   'ACTIVE' = 'active',
 }
+
+export type ReducerActionType =
+  | {
+      type:
+        | ActionType.COMPLETE_ALL
+        | ActionType.CLEAR_ALL
+        | ActionType.CLEAR_COMPLETED;
+    }
+  | {
+      type:
+        | ActionType.COMPLETE_TASK
+        | ActionType.REMOVE_TASK
+        | ActionType.UNCOMPLETE_TASK;
+      payload: { id: string };
+    }
+  | {
+      type: ActionType.ADD_TASK;
+      payload: { content: string };
+    };
+
+export type ReducerStateType = { tasks: TaskListType };
+
+export enum ActionType {
+  'COMPLETE_ALL' = 'complete-all',
+  'CLEAR_ALL' = 'clear-all',
+  'CLEAR_COMPLETED' = 'clear-completed',
+  'COMPLETE_TASK' = 'complete-task',
+  'REMOVE_TASK' = 'remove-task',
+  'UNCOMPLETE_TASK' = 'uncomplete-task',
+  'ADD_TASK' = 'add-task',
+}

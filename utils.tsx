@@ -1,4 +1,4 @@
-function makeid() {
+export default function makeid() {
   let result = '';
 
   const characters =

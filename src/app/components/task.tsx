@@ -25,7 +25,7 @@ export default function Task({
 
   return (
     <li
-      className={`flex gap-2 bg-slate-200 p-2 rounded-2xl odd:bg-slate-300 ${
+      className={`flex gap-2 bg-slate-200 p-1 sm:p-2 rounded-2xl odd:bg-slate-300 ${
         status === TaskStatusType.COMPLETED ? 'opacity-25' : ''
       }`}
     >
@@ -33,7 +33,7 @@ export default function Task({
 
       <button
         type="button"
-        className="bg-lime-700 rounded-xl p-2"
+        className="bg-lime-700 rounded-xl sm:p-2 p-1"
         onClick={() => {
           onChangeTask({ id, status });
         }}
@@ -46,7 +46,7 @@ export default function Task({
       </button>
       <button
         type="button"
-        className="bg-lime-700 rounded-xl p-2"
+        className="bg-lime-700 rounded-xl sm:p-2 p-1"
         onClick={() => {
           onDeleteTask({ id });
         }}
