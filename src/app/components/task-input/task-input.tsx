@@ -23,6 +23,7 @@ export default function TaskInput({
   return (
     <form className="w-full" onSubmit={handleSubmit}>
       <input
+        data-testid={'task-creation-input'}
         type="text"
         className="w-full bg-slate-200 p-4 text-black outline-none"
         placeholder="What are we going to do today?"

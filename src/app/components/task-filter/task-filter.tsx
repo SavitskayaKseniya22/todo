@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SortType } from '../../../types';
+import { SortType } from '../../../../types';
 
 export default function TaskFilter({
   onSumbit,
@@ -11,6 +11,7 @@ export default function TaskFilter({
   return (
     <form className="flex gap-4 justify-evenly w-full md:w-3/6">
       <input
+        data-testid="filter-radio-all"
         type="radio"
         name="task-sort"
         id="all"
@@ -29,6 +30,7 @@ export default function TaskFilter({
       </label>
 
       <input
+        data-testid="filter-radio-completed"
         type="radio"
         name="task-sort"
         id={SortType.COMPLETED}
@@ -47,6 +49,7 @@ export default function TaskFilter({
       </label>
 
       <input
+        data-testid="filter-radio-active"
         type="radio"
         name="task-sort"
         id={SortType.ACTIVE}

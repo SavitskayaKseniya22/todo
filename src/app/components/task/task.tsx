@@ -4,7 +4,7 @@ import {
   MinusCircleIcon,
 } from '@heroicons/react/24/outline';
 
-import { TaskStatusType, TaskType } from '../../../types';
+import { TaskStatusType, TaskType } from '../../../../types';
 
 export default function Task({
   data,
@@ -25,6 +25,8 @@ export default function Task({
 
   return (
     <li
+      data-testid="task"
+      data-status={status}
       className={`flex gap-2 bg-slate-200 p-1 sm:p-2 rounded-2xl odd:bg-slate-300 ${
         status === TaskStatusType.COMPLETED ? 'opacity-25' : ''
       }`}
@@ -32,6 +34,7 @@ export default function Task({
       <div className="p-2 rounded-xl flex-grow ">{content}</div>
 
       <button
+        data-testid="task-button-change"
         type="button"
         className="bg-lime-700 rounded-xl sm:p-2 p-1"
         onClick={() => {
@@ -45,6 +48,7 @@ export default function Task({
         )}
       </button>
       <button
+        data-testid="task-button-remove"
         type="button"
         className="bg-lime-700 rounded-xl sm:p-2 p-1"
         onClick={() => {

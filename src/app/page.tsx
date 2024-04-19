@@ -2,11 +2,11 @@
 
 import { useReducer } from 'react';
 import { TaskStatusType, SortType, ActionType } from '../../types';
-import Task from './components/task';
+import Task from './components/task/task';
 import reducer from './components/task-reducer';
-import TaskInput from './components/task-input';
-import Summary from './components/summary';
-import TaskFilter from './components/task-filter';
+import TaskInput from './components/task-input/task-input';
+import Summary from './components/summary/summary';
+import TaskFilter from './components/task-filter/task-filter';
 import { initialTasks } from './components/tasks-initial-value';
 
 export default function Home() {
@@ -86,6 +86,7 @@ export default function Home() {
 
           <form className="flex gap-2 justify-evenly w-full md:flex-col md:w-1/5 items-start">
             <button
+              data-testid="tasks-clear-all"
               type="button"
               onClick={() => {
                 dispatch({ type: ActionType.CLEAR_ALL });
@@ -94,6 +95,7 @@ export default function Home() {
               Clear all
             </button>
             <button
+              data-testid="tasks-clear-completed"
               type="button"
               onClick={() => {
                 dispatch({ type: ActionType.CLEAR_COMPLETED });
@@ -102,6 +104,7 @@ export default function Home() {
               Clear completed
             </button>
             <button
+              data-testid="tasks-make-all-completed"
               type="button"
               onClick={() => {
                 dispatch({ type: ActionType.COMPLETE_ALL });
