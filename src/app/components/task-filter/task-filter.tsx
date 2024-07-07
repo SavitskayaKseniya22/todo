@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SortType } from '../../../../types';
+import { SortType } from '../../../types';
 
 export default function TaskFilter({
   onSumbit,

@@ -2,10 +2,9 @@ import {
   ActionType,
   ReducerActionType,
   ReducerStateType,
-  TaskListType,
   TaskStatusType,
-} from '../../../types';
-import makeid from '../../../utils';
+} from '../../types';
+import makeid from '../../utils';
 
 export default function reducer(
   state: ReducerStateType,

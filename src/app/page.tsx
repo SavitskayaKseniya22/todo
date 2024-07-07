@@ -1,7 +1,7 @@
 'use client';
 
 import { useReducer } from 'react';
-import { TaskStatusType, SortType, ActionType } from '../../types';
+import { TaskStatusType, SortType, ActionType } from '../types';
 import Task from './components/task/task';
 import reducer from './components/task-reducer';
 import TaskInput from './components/task-input/task-input';

@@ -1,4 +1,4 @@
-import { TaskListType, TaskStatusType } from '../../../types';
+import { TaskListType, TaskStatusType } from '../../types';
 
 export const initialTasks: TaskListType = [
   {
