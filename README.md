@@ -32,13 +32,13 @@ git clone https://github.com/SavitskayaKseniya22/todo.git
 cd todo
 ```
 
-2. Install dependencies
+3. Install dependencies
 
 ```bash
 npm install
 ```
 
-3. Start the dev server
+4. Start the dev server
 
 ```bash
 npm run dev
