@@ -1,15 +1,7 @@
-import {
-  ActionType,
-  ReducerActionType,
-  ReducerStateType,
-  TaskStatusType,
-} from '../../types';
-import makeid from '../../utils';
+import { ActionType, ReducerActionType, ReducerStateType, TaskStatusType } from "../../types";
+import makeid from "../../utils";
 
-export default function reducer(
-  state: ReducerStateType,
-  action: ReducerActionType
-) {
+export default function reducer(state: ReducerStateType, action: ReducerActionType) {
   switch (action.type) {
     case ActionType.CHANGE_SORT:
       return {
@@ -26,18 +18,14 @@ export default function reducer(
       return {
         ...state,
         tasks: state.tasks.map((item) => {
-          return item.id === action.payload.id
-            ? { ...item, status: TaskStatusType.COMPLETED }
-            : item;
+          return item.id === action.payload.id ? { ...item, status: TaskStatusType.COMPLETED } : item;
         }),
       };
     case ActionType.UNCOMPLETE_TASK:
       return {
         ...state,
         tasks: state.tasks.map((item) => {
-          return item.id === action.payload.id
-            ? { ...item, status: TaskStatusType.ACTIVE }
-            : item;
+          return item.id === action.payload.id ? { ...item, status: TaskStatusType.ACTIVE } : item;
         }),
       };
 
@@ -46,9 +34,7 @@ export default function reducer(
     case ActionType.CLEAR_COMPLETED:
       return {
         ...state,
-        tasks: state.tasks.filter(
-          (item) => item.status !== TaskStatusType.COMPLETED
-        ),
+        tasks: state.tasks.filter((item) => item.status !== TaskStatusType.COMPLETED),
       };
     case ActionType.COMPLETE_ALL:
       return {

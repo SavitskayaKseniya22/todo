@@ -1,6 +1,6 @@
 export enum TaskStatusType {
-  'ACTIVE' = 'active',
-  'COMPLETED' = 'completed',
+  "ACTIVE" = "active",
+  "COMPLETED" = "completed",
 }
 
 export type TaskType = {
@@ -12,25 +12,17 @@ export type TaskType = {
 export type TaskListType = TaskType[];
 
 export enum SortType {
-  'ALL' = 'all',
-  'COMPLETED' = 'completed',
-  'ACTIVE' = 'active',
+  "ALL" = "all",
+  "COMPLETED" = "completed",
+  "ACTIVE" = "active",
 }
-
-
 
 export type ReducerActionType =
   | {
-      type:
-        | ActionType.COMPLETE_ALL
-        | ActionType.CLEAR_ALL
-        | ActionType.CLEAR_COMPLETED;
+      type: ActionType.COMPLETE_ALL | ActionType.CLEAR_ALL | ActionType.CLEAR_COMPLETED;
     }
   | {
-      type:
-        | ActionType.COMPLETE_TASK
-        | ActionType.REMOVE_TASK
-        | ActionType.UNCOMPLETE_TASK;
+      type: ActionType.COMPLETE_TASK | ActionType.REMOVE_TASK | ActionType.UNCOMPLETE_TASK;
       payload: { id: string };
     }
   | {
@@ -45,12 +37,12 @@ export type ReducerActionType =
 export type ReducerStateType = { tasks: TaskListType; sort: SortType };
 
 export enum ActionType {
-  'COMPLETE_ALL' = 'complete-all',
-  'CLEAR_ALL' = 'clear-all',
-  'CLEAR_COMPLETED' = 'clear-completed',
-  'COMPLETE_TASK' = 'complete-task',
-  'REMOVE_TASK' = 'remove-task',
-  'UNCOMPLETE_TASK' = 'uncomplete-task',
-  'ADD_TASK' = 'add-task',
-  'CHANGE_SORT' = 'change-sort',
+  "COMPLETE_ALL" = "complete-all",
+  "CLEAR_ALL" = "clear-all",
+  "CLEAR_COMPLETED" = "clear-completed",
+  "COMPLETE_TASK" = "complete-task",
+  "REMOVE_TASK" = "remove-task",
+  "UNCOMPLETE_TASK" = "uncomplete-task",
+  "ADD_TASK" = "add-task",
+  "CHANGE_SORT" = "change-sort",
 }

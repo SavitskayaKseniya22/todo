@@ -1,22 +1,18 @@
-import { useState } from 'react';
-import { SortType } from '../../../types';
+import { useState } from "react";
+import { SortType } from "../../../types";
 
-export default function TaskFilter({
-  onSumbit,
-}: {
-  onSumbit: (sort: SortType) => void;
-}) {
+export default function TaskFilter({ onSumbit }: { onSumbit: (sort: SortType) => void }) {
   const [filterType, setFilterType] = useState<SortType>(SortType.ALL);
 
   return (
-    <form className="flex gap-4 justify-evenly w-full md:w-3/6">
+    <form className="flex w-full justify-evenly gap-4 md:w-3/6">
       <input
         data-testid="filter-radio-all"
         type="radio"
         name="task-sort"
         id="all"
         checked={filterType === SortType.ALL}
-        className="hidden peer/all"
+        className="peer/all hidden"
         onChange={(e) => {
           setFilterType(SortType.ALL);
           onSumbit(SortType.ALL);
@@ -24,7 +20,7 @@ export default function TaskFilter({
       />
       <label
         htmlFor="all"
-        className="flex rounded-xl border-solid border-2 p-2 cursor-pointer peer-checked/all:bg-slate-200 peer-checked/all:text-black flex-grow"
+        className="flex flex-grow cursor-pointer rounded-xl border-2 border-solid p-2 peer-checked/all:bg-slate-200 peer-checked/all:text-black"
       >
         All
       </label>
@@ -34,7 +30,7 @@ export default function TaskFilter({
         type="radio"
         name="task-sort"
         id={SortType.COMPLETED}
-        className="hidden peer/completed"
+        className="peer/completed hidden"
         checked={filterType === SortType.COMPLETED}
         onChange={(e) => {
           setFilterType(SortType.COMPLETED);
@@ -43,7 +39,7 @@ export default function TaskFilter({
       />
       <label
         htmlFor="completed"
-        className="flex rounded-xl border-solid border-2 p-2 cursor-pointer peer-checked/completed:bg-slate-200 peer-checked/completed:text-black flex-grow"
+        className="flex flex-grow cursor-pointer rounded-xl border-2 border-solid p-2 peer-checked/completed:bg-slate-200 peer-checked/completed:text-black"
       >
         Completed
       </label>
@@ -53,7 +49,7 @@ export default function TaskFilter({
         type="radio"
         name="task-sort"
         id={SortType.ACTIVE}
-        className="hidden peer/active"
+        className="peer/active hidden"
         checked={filterType === SortType.ACTIVE}
         onChange={(e) => {
           setFilterType(SortType.ACTIVE);
@@ -63,7 +59,7 @@ export default function TaskFilter({
 
       <label
         htmlFor="active"
-        className="flex rounded-xl border-solid border-2 p-2 cursor-pointer peer-checked/active:bg-slate-200 peer-checked/active:text-black flex-grow"
+        className="flex flex-grow cursor-pointer rounded-xl border-2 border-solid p-2 peer-checked/active:bg-slate-200 peer-checked/active:text-black"
       >
         Active
       </label>
